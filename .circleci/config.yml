@@ -15,7 +15,8 @@ jobs:
       # install node and checkout code
       - node/install:
           node-version: '14.15'   
-                
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - checkout
       # Use root level package.json to install dependencies in the frontend app
       - run:
@@ -49,26 +50,13 @@ jobs:
           name: API Build
           command: |
             echo "TODO: Build the backend API"
-            npm run api:build    
-  test:
-    docker:
-      - image: 'cimg/node:14.15-browsers'
-    steps:
-      - node/install:
-          node-version: '14.15'   
-            
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
-      - checkout
-      - run:
-          name: Check install
-          command: |
-            google-chrome --version
-            chromedriver --version          
+            npm run api:build 
+             
       - run:
           name: Front-End Test
           command: |
-             npm run frontend:test
+             npm run frontend:test   
+ 
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -91,7 +79,7 @@ workflows:
   udagram:
     jobs:
       - build
-      - test
+   
       - hold:
           filters:
             branches:
@@ -101,7 +89,7 @@ workflows:
           requires:
             
             - build
-            - test
+       
       - deploy:
           requires:
             - hold
