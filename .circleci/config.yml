@@ -48,6 +48,10 @@ jobs:
           command: |
             echo "TODO: Build the backend API"
             npm run api:build
+      - run:
+          name: Front-End Test
+          command: |
+             npm run frontend:test
   # deploy step will run only after manual approval
   deploy:
     docker:
