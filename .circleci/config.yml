@@ -99,8 +99,9 @@ workflows:
                 - master
           type: approval
           requires:
-            - test
+            
             - build
+            - test
       - deploy:
           requires:
             - hold
