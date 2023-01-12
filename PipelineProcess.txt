@@ -1,0 +1,26 @@
+FrontEnd deploy script:
+aws s3 cp --recursive --acl public-read ./build s3://walaabucket/
+
+Backend deploy script:
+eb init walaaapp --region us-east-1 --platform node.js
+eb create --sample walaa-env
+eb use walaa-env
+eb setenv PORT=$PORT TEST=test
+eb deploy
+
+Pipeline Jobs:
+  1-Install frontend and backend Dependency:
+    cd reactnd-contacts-complete && npm install
+    cd reactnd-contacts-server && npm install && npm install yarn -g
+  
+  2-Build frontend and backend:
+      cd reactnd-contacts-complete && npm run build
+      cd reactnd-contacts-server && npm run build
+
+   3-Test  frontend and backend:
+      cd reactnd-contacts-complete && npm run test
+      cd reactnd-contacts-server && npm run test
+      
+    4-Deploy  frontend and backend:
+      cd reactnd-contacts-complete && npm run deploy
+      cd reactnd-contacts-server && npm run deploy
