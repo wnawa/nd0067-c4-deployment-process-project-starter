@@ -8,7 +8,7 @@
     "start": "ng serve",
     "build": "ng build",
     "deploy": "npm install -f && npm run build && chmod +x bin/deploy.sh && bin/deploy.sh",
-    "test": "ng test",
+    "test": "ng run udagram-frontend:test --watch=false --code-coverage --no-progress",
     "lint": "ng lint --fix",
     "e2e": "ng e2e"
   },
