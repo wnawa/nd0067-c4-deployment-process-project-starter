@@ -14,7 +14,8 @@ jobs:
     steps:
       # install node and checkout code
       - node/install:
-          node-version: '14.15'         
+          node-version: '14.15'   
+                
       - checkout
       # Use root level package.json to install dependencies in the frontend app
       - run:
@@ -53,8 +54,12 @@ jobs:
     docker:
       - image: 'cimg/node:14.15-browsers'
     steps:
+      - node/install:
+          node-version: '14.15'   
+            
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
+      - checkout
       - run:
           name: Check install
           command: |
