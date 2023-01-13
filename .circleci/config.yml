@@ -17,6 +17,7 @@ jobs:
       # install node and checkout code
       - node/install:
           node-version: '14.15'   
+         - node node_modules/.bin/webdriver-manager update --versions.chrome=77.0.3865.40
       - checkout
       
      
@@ -57,7 +58,7 @@ jobs:
       - run:
           name: Front-End Test
           command: |
-          node node_modules/.bin/webdriver-manager update --versions.chrome=77.0.3865.40
+          
              npm run frontend:test   
  
   # deploy step will run only after manual approval
