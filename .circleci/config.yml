@@ -18,8 +18,7 @@ jobs:
       - node/install:
           node-version: '14.15'   
       - checkout
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
+      
      
       # Use root level package.json to install dependencies in the frontend app
       - run:
@@ -58,6 +57,7 @@ jobs:
       - run:
           name: Front-End Test
           command: |
+          node node_modules/.bin/webdriver-manager update --versions.chrome=77.0.3865.40
              npm run frontend:test   
  
   # deploy step will run only after manual approval
