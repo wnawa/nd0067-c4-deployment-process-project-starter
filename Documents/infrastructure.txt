@@ -3,7 +3,7 @@ s3 Bucket: s3://walaabucket/
 S3 Url: http://walaabucket.s3-website-us-east-1.amazonaws.com
 
 Backend Enviroment:
-Db Endpoint:Endpoint
+Db Endpoint:database-1.c9mi2ey2m0e7.us-east-1.rds.amazonaws.com
 Application Name: walaaapp
 Enviroment Name: walaa-env
 Eb URL:
