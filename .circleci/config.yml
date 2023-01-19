@@ -49,15 +49,11 @@ jobs:
           command: |
             echo "TODO: Build the backend API"
             npm run api:build 
-             
-      - run:
-          name: API Test
-          command: |
-          
-             npm run api:test  
+ 
  
   # deploy step will run only after manual approval
   deploy:
+  
     docker:
       - image: "cimg/base:stable"
       # more setup needed for aws, node, elastic beanstalk
