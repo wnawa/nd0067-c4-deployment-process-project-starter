@@ -1,6 +1,6 @@
 FrontEnd Enviroment 
 s3 Bucket: s3://walaabucket/
-S3 Url: http://walaabucket.s3-website-us-east-1.amazonaws.com/
+S3 Url: http://walaabucket.s3-website-us-east-1.amazonaws.com
 
 Backend Enviroment:
 Db Endpoint:Endpoint
@@ -8,7 +8,7 @@ Application Name: walaaapp
 Enviroment Name: walaa-env
 Eb URL:
 
-http://walaa-env.eba-qekg3xb9.us-east-1.elasticbeanstalk.com/
+http://walaa-env.eba-qekg3xb9.us-east-1.elasticbeanstalk.com
 
 Deployment pipline Enviroment:
 circleci
