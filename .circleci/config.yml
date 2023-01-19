@@ -4,24 +4,19 @@ orbs:
   node: circleci/node@5.0.2
   eb: circleci/aws-elastic-beanstalk@2.0.1
   aws-cli: circleci/aws-cli@3.1.1
-  browser-tools: circleci/browser-tools@1.1.3
   # different jobs are calles later in the workflows sections
 jobs:
   build:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:14.15"
-    parallelism: 4
     steps:
-     
+   
       # install node and checkout code
       - node/install:
           node-version: '14.15'   
-         - node node_modules/.bin/webdriver-manager update --versions.chrome=77.0.3865.40
-      - checkout
-      
-     
-      # Use root level package.json to install dependencies in the frontend app
+        - checkout
+        # Use root level package.json to install dependencies in the frontend app
       - run:
           name: Install Front-End Dependencies
           command: |
@@ -56,10 +51,10 @@ jobs:
             npm run api:build 
              
       - run:
-          name: Front-End Test
+          name: API Test
           command: |
           
-             npm run frontend:test   
+             npm run api:test  
  
   # deploy step will run only after manual approval
   deploy:
